@@ -19,12 +19,10 @@ standard deck and no jokers or other modifiers.
 
 ### Actions
 
-On each turn the player selects 1–5 cards from their hand and either:
+On each turn the player selects upto 5 cards from their hand and can play or discard them:
 
-- **Plays** them: the selected cards are classified as a hand, scored, and added to the
-  running total. Uses one hand.
-- **Discards** them: the selected cards are removed without scoring. Uses one discard, and
-  is only allowed while discards remain.
+- Playing leads to the selected cards being treated as the best hand it can be (in terms of poker order, NOT multiplier table order), and scored (see [Scoring](#scoring)). One **hand** is consumed.
+- Discarding simply removes the selected cards. One **discard** is consumed. 
 
 After either action, the played or discarded cards leave the game, and replacement cards are
 drawn from the remaining deck until the hand is back to 8 cards.
@@ -70,6 +68,8 @@ Score = (base chips + chips of scoring cards) × mult
 Flush Five, Flush House and Five of a Kind need duplicate cards, which only exist in
 modified decks, so they cannot occur in v1's standard 52-card deck.
 
+The hand played is scored according to the best poker hand it can be, not the one with the greatest score. What this means is that in a flush modded (flush level much higher) game, you would be better off selecting your flush so that it does not become a straight flush, or a lower scoring hand.
+
 ### Blind outcome
 
 - **Cleared:** the running total reaches or exceeds the target. The blind ends immediately.
@@ -78,7 +78,7 @@ modified decks, so they cannot occur in v1's standard 52-card deck.
 
 ### Targets
 
-Without jokers, scores are low, so the target is treated as an **experiment parameter**:
+Without jokers, scores are low, so the target is an experimental parameter. I am usually able to clear the first ante even in the absence of jokers, so the blinds for the first ante will be used as is:
 results are reported across a grid of targets. Ante-1 values (300 / 450 / 600 for small /
 big / boss blind, with boss effects disabled) are used as reference points.
 
