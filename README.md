@@ -2,24 +2,17 @@
 
 ## Motivation
 
-A Balatro blind is a finite-horizon decision problem under uncertainty. The state is
-the current hand, the remaining deck, hands left, discards left, and chips still needed
-to reach the target, together with a fixed scoring configuration (base chips and mult
-per hand type). Jokers, enhancements and boss effects are out of scope for v1.
+Balatro strategies, atleast for me, are completely decided by the first few blinds. They are also the most vanilla, since you're most likely without jokers or score modifiers and are forced to resort to optimal strategies. Your score (and a lot of luck) here generally decides the fate of the rest of the game, as building up a a bigger bankroll or stacking powerful jokers can then guide you to hunt strategies that maximize their output. The point of this project is to see what happens in the initial vanilla blinds. 
 
-This project asks two questions:
-
-1. **Decision:** For a given state, what is the probability of clearing the blind under
-   each available action (each play or discard), and which action maximizes it?
-2. **Measurement:** How much worse do simple heuristic policies perform than near-optimal
-   play, and in which states does the gap concentrate?
-
-"Near-optimal" here means a rollout-improved policy that evaluates each action by Monte
-Carlo simulation. It is validated against exact combinatorial solutions wherever those
-are tractable (single-discard decisions).
+My goto strategy for clearing such blinds is to hunt for flushes. This made sense to me intuitively 
+since they seemed easier to complete. The goal of this project is to test this intuition, and see how often such a strategy clears a blind. Is there a better policy that can come close to near-optimal play?
 
 
 ## Rules and Assumptions
+
+The state at any point the current hand, the remaining deck, hands left, discards left, and chips still needed
+to reach the target, together with a fixed scoring configuration (base chips and mult
+per hand type). Jokers, enhancements or boss effects will not be touched upon, atleast in the initial phase.
 
 1. 
 
