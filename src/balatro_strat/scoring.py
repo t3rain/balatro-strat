@@ -40,24 +40,23 @@ def classify(cards: Sequence[Card]) -> tuple[HandType, tuple[Card, ...]]:
     elif rank_frequency[0][1] == 4:
         four_of_a_kind = True
         top_rank = rank_frequency[0][0]
-        scoring = tuple(c for c in cards if rank(c) == top_rank)
     elif rank_frequency[0][1] == 3:
         if len(rank_frequency) > 1 and rank_frequency[1][1] == 2:
             full_house = True
         else:
             three_of_a_kind = True
             top_rank = rank_frequency[0][0]
-            scoring = tuple(c for c in cards if rank(c) == top_rank)
     elif rank_frequency[0][1] == 2:
         if len(rank_frequency) > 1 and rank_frequency[1][1] == 2:
             two_pair = True
             top_ranks = {r for r, n in rank_frequency if n == 2}
-            scoring = tuple(c for c in cards if rank(c) in top_ranks)
         else:
             pair = True  
             top_rank = rank_frequency[0][0]
-            scoring = tuple(c for c in cards if rank(c) == top_rank)  
 
+    def cards_of(ranks: set[int]) -> tuple[Card, ...]:
+        return tuple(c for c in cards if rank(c) in ranks)
+    
     if flush and five_of_a_kind:
         return HandType.FLUSH_FIVE, tuple(cards)
     elif flush and full_house:
@@ -67,7 +66,7 @@ def classify(cards: Sequence[Card]) -> tuple[HandType, tuple[Card, ...]]:
     elif straight and flush:
         return HandType.STRAIGHT_FLUSH, tuple(cards)
     elif four_of_a_kind:
-        return HandType.FOUR_OF_A_KIND, scoring
+        return HandType.FOUR_OF_A_KIND, cards_of({top_rank})
     elif full_house:
         return HandType.FULL_HOUSE, tuple(cards)
     elif flush:
@@ -75,11 +74,11 @@ def classify(cards: Sequence[Card]) -> tuple[HandType, tuple[Card, ...]]:
     elif straight:
         return HandType.STRAIGHT, tuple(cards)
     elif three_of_a_kind:
-        return HandType.THREE_OF_A_KIND, scoring
+        return HandType.THREE_OF_A_KIND, cards_of({top_rank})
     elif two_pair:
-        return HandType.TWO_PAIR, scoring
+        return HandType.TWO_PAIR, cards_of(top_ranks)
     elif pair:
-        return HandType.PAIR, scoring
+        return HandType.PAIR, cards_of({top_rank})
     else:
         top_rank = ranks[-1]
         return HandType.HIGH_CARD, tuple(card for card in cards if rank(card) == top_rank)
