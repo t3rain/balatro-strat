@@ -22,10 +22,10 @@ DECK_SIZE = NUM_RANKS * NUM_SUITS
 # named indices, for the other cards, this is just (value-2)
 TEN, JACK, QUEEN, KING, ACE = 8, 9, 10, 11, 12
 
-SPADES, HEARTS, CLUBS, DIAMONDS= 0, 1, 2, 3
+SPADES, HEARTS, CLUBS, DIAMONDS = 0, 1, 2, 3
 
 RANK_CHARS = "23456789TJQKA"   # canonical one-char parse form ("T" = ten)
-RANK_NAMES = ("2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A")
+RANK_NAMES = ("2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A")
 SUIT_CHARS = "shcd"            # ASCII form
 SUIT_SYMBOLS = "♠♥♣♦"          # display form
 

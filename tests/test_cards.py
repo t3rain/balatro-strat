@@ -91,8 +91,8 @@ def test_make_card_rejects_bad_indices(r, s):
 def test_parse_hand_and_display():
     hand = parse_hand("As 10h Td K♣ 2c")
     assert len(hand) == 5
-    assert hand_str(hand) == "A♠ 10♥ 10♦ K♣ 2♣"
-    assert hand_str(hand, symbols=False) == "As 10h 10d Kc 2c"
+    assert hand_str(hand) == "A♠ T♥ T♦ K♣ 2♣"
+    assert hand_str(hand, symbols=False) == "As Th Td Kc 2c"
 
 
 def test_parse_hand_allows_duplicates():
