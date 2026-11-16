@@ -68,7 +68,7 @@ Score = (base chips + chips of scoring cards) × mult
 Flush Five, Flush House and Five of a Kind need duplicate cards, which only exist in
 modified decks, so they cannot occur in v1's standard 52-card deck.
 
-The hand played is scored according to the best poker hand it can be, not the one with the greatest score. What this means is that in a flush modded (flush level much higher) game, you would be better off selecting your flush so that it does not become a straight flush, or a lower scoring hand.
+The hand played is scored according to the best poker hand it can be, not the one with the greatest score. What this means is that in a flush modded (flush level much higher) game, you would be better off selecting your flush so that it does not become a straight flush, or a similar lesser enhanced hand.
 
 ### Blind outcome
 
